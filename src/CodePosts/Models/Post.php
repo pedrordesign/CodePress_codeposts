@@ -1,16 +1,16 @@
 <?php
 
-namespace CodePress\CodePost\Models;
+namespace CodePress\CodePosts\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Validation\Validator;
 
 /**
- * Class Category
- * @package CodePress\CodePost\Models
+ * Class Post
+ * @package CodePress\CodePosts\Models
  */
-class Category extends Model
+class Post extends Model
 {
     use Sluggable;
 
