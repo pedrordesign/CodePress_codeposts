@@ -3,6 +3,7 @@
 namespace CodePress\CodePosts\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Validation\Validator;
 
@@ -13,6 +14,7 @@ use Illuminate\Contracts\Validation\Validator;
 class Post extends Model
 {
     use Sluggable;
+    use SluggableScopeHelpers;
 
     /**
      * @var string
