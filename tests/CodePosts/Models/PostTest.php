@@ -82,4 +82,23 @@ class PostTest extends AbstractTestCase
 
     }
 
+    public function test_can_validate_post()
+    {
+        $post = new Post();
+        $post->title = 'Post Test';
+        $post->content = 'Conteudo do post';
+
+        $factory = $this->app->make('Illuminate\Validation\Factory');
+
+        $validator = $factory->make([],[]);
+
+
+        $post->setValidator($validator);
+        $this->assertTrue($post->isValid());
+
+        $post->title = null;
+        $this->assertFalse($post->isValid());
+
+    }
+
 }
