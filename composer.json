@@ -1,5 +1,5 @@
 {
-  "name": "pedroramos/code-posts",
+  "name": "pedroramos/code-post",
   "require": {
     "php": ">=5.6.4",
     "illuminate/contracts": "~5.3",
@@ -17,7 +17,7 @@
   },
   "autoload": {
     "psr-4": {
-      "CodePress\\CodePosts\\": "src/CodePosts/"
+      "CodePress\\CodePost\\": "src/CodePost/"
     }
   }
 }

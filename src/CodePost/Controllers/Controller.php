@@ -1,6 +1,6 @@
 <?php
 
-namespace CodePress\CodePosts\Controllers;
+namespace CodePress\CodePost\Controllers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;

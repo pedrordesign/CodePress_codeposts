@@ -1,11 +1,11 @@
 <?php
 
-namespace CodePress\CodePosts\Providers;
+namespace CodePress\CodePost\Providers;
 
 
 use Cviebrock\EloquentSluggable\ServiceProvider;
 
-class CodePostsServiceProvider extends ServiceProvider
+class CodePostServiceProvider extends ServiceProvider
 {
     /**
      *
@@ -17,7 +17,7 @@ class CodePostsServiceProvider extends ServiceProvider
             [__DIR__ . '/../../resources/migrations' => base_path('database/migrations')],
             'migrations'
         );
-        $this->loadViewsFrom(__DIR__ . '/../../resources/views/codeposts', 'codeposts');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views/codepost', 'codepost');
         require __DIR__ . '/../routes.php';
     }
 

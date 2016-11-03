@@ -1,9 +1,9 @@
 <?php
 
-namespace CodePress\CodePosts\Tests\Models;
+namespace CodePress\CodePost\Tests\Models;
 
-use CodePress\CodePosts\Models\Post;
-use CodePress\CodePosts\Tests\AbstractTestCase;
+use CodePress\CodePost\Models\Post;
+use CodePress\CodePost\Tests\AbstractTestCase;
 use Illuminate\Validation\Validator;
 use Mockery as m;
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace CodePress\CodePosts\Tests;
+namespace CodePress\CodePost\Tests;
 
 use Orchestra\Testbench\TestCase;
 
 /**
  * Class AbstractTestCase
- * @package CodePress\CodePosts\Tests
+ * @package CodePress\CodePost\Tests
  */
 abstract class AbstractTestCase extends TestCase
 {

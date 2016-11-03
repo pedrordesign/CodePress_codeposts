@@ -1,6 +1,6 @@
 <?php
 
-namespace CodePress\CodePosts\Models;
+namespace CodePress\CodePost\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
@@ -9,7 +9,7 @@ use Illuminate\Contracts\Validation\Validator;
 
 /**
  * Class Post
- * @package CodePress\CodePosts\Models
+ * @package CodePress\CodePost\Models
  */
 class Post extends Model
 {
@@ -83,6 +83,10 @@ class Post extends Model
 
         $this->errors = $validator->errors();
         return false;
+    }
+
+    public function categories(){
+        return $this->morphToMany('\CodePress\CodeCategory\Models\Category', 'categorizable', 'codepress_categorizables');
     }
 
 }
