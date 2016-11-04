@@ -2,9 +2,6 @@
 
 namespace CodePress\CodePost\Models;
 
-use CodePress\CodeCategory\Models\Category;
-use Cviebrock\EloquentSluggable\Sluggable;
-use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Validation\Validator;
 
@@ -12,45 +9,25 @@ use Illuminate\Contracts\Validation\Validator;
  * Class Post
  * @package CodePress\CodePost\Models
  */
-class Post extends Model
-{
-    use Sluggable;
-    use SluggableScopeHelpers;
+class Comment extends Model{
 
     /**
      * @var string
      */
     protected $table = 'codepress_posts';
 
-    /**
-     * Return the sluggable configuration array for this model.
-     *
-     * @return array
-     */
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'title',
-                'unique' => true
-            ]
-        ];
-    }
 
     /**
      * @var array
      */
     protected $fillable = [
-        'title',
-        'content',
-        'slug'
+        'content'
     ];
 
     /**
      * @var
      */
     private $validator;
-
 
     /**
      * @param Validator $validator
@@ -74,7 +51,6 @@ class Post extends Model
     public function isValid(){
         $validator = $this->validator;
         $validator->setRules([
-            'title' => 'required|max:55',
             'content' => 'required'
         ]);
         $validator->setData($this->getAttributes());
@@ -86,12 +62,10 @@ class Post extends Model
         return false;
     }
 
-    public function categories(){
-        return $this->morphToMany(Category::class, 'categorizable', 'codepress_categorizables');
+    public function post(){
+        return $this->belongsTo(Post::class);
     }
 
-    public function comments(){
-        return $this->hasMany(Comment::class);
-    }
+
 
 }

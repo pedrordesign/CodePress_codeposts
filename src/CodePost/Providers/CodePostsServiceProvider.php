@@ -3,6 +3,7 @@
 namespace CodePress\CodePost\Providers;
 
 
+use CodePress\CodePost\Repository\PostRepositoryInterface;
 use Cviebrock\EloquentSluggable\ServiceProvider;
 
 class CodePostServiceProvider extends ServiceProvider
@@ -28,6 +29,7 @@ class CodePostServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->bind(PostRepositoryInterface::class, PostRepositoryEloquent::class);
     }
 
 }
