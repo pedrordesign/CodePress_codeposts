@@ -14,14 +14,15 @@ class Comment extends Model{
     /**
      * @var string
      */
-    protected $table = 'codepress_posts';
+    protected $table = 'codepress_comments';
 
 
     /**
      * @var array
      */
     protected $fillable = [
-        'content'
+        'content',
+        'post_id'
     ];
 
     /**
