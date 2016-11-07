@@ -4,18 +4,18 @@
 
     <div class="container">
 
-        <h3>Create Post</h3>
+        <h3>Edit Post</h3>
 
         {!! Form::Open(['method' => 'post', 'route' => ['admin.posts.store']]) !!}
 
             <div class="form-group">
                 {!! Form::label('Title', 'Title:') !!}
-                {!! Form::text('title', null, ['class' => 'form-control']) !!}
+                {!! Form::text('title', $post->title, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
                 {!! Form::label('Content', 'Content:') !!}
-                {!! Form::text('content', null, ['class' => 'form-control']) !!}
+                {!! Form::text('content', $post->content, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
