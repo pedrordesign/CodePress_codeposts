@@ -122,4 +122,13 @@ class PostTest extends AbstractTestCase
 
     }
 
+    public function test_can_softDelete(){
+
+        $post = Post::create(['title' => 'Post Test', 'content' => 'Conteudo do post']);
+        $post->delete();
+        $this->assertEquals(true, $post->trashed());
+        $this->assertCount(0, Post::all());
+        //print_r($post->deleted_at);
+    }
+
 }

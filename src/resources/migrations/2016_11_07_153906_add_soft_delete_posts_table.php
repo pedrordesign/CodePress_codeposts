@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class AddSoftDeleteToCodePostTable
+class AddSoftDeletePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +13,8 @@ class AddSoftDeleteToCodePostTable
      */
     public function up()
     {
-        Schema::table('codepress_post', function (Blueprint $table){
-            $table->softDeletes();
+        Schema::table('codepress_posts', function (Blueprint $table){
+           $table->softDeletes();
         });
     }
 
@@ -24,7 +25,7 @@ class AddSoftDeleteToCodePostTable
      */
     public function down()
     {
-        Schema::table('codepress_post', function (Blueprint $table){
+        Schema::table('codepress_posts', function (Blueprint $table){
             $table->dropColumn('deleted_at');
         });
     }

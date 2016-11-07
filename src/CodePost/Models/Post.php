@@ -15,9 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Post extends Model
 {
-    use Sluggable;
-    use SluggableScopeHelpers;
-    use SoftDeletes;
+    use Sluggable, SluggableScopeHelpers, SoftDeletes;
 
     /**
      * @var string
