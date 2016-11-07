@@ -22,6 +22,7 @@ class PostTest extends AbstractTestCase
         $post->setValidator($validator);
 
         $this->assertEquals($post->getValidator(), $validator);
+
     }
 
     public function test_should_check_if_it_is_valid_when_it_is()
@@ -44,6 +45,7 @@ class PostTest extends AbstractTestCase
         $post->setValidator($validator);
 
         $this->assertTrue($post->isValid());
+
     }
 
     public function test_should_check_if_it_is_invalid_when_it_is()
@@ -108,6 +110,7 @@ class PostTest extends AbstractTestCase
         $this->assertEquals($post->slug, "post-test-1");
         $post = Post::findBySlug("post-test-1");
         $this->assertInstanceOf(Post::class, $post);
+
     }
 
     public function test_can_add_comments(){
@@ -129,6 +132,7 @@ class PostTest extends AbstractTestCase
         $this->assertEquals(true, $post->trashed());
         $this->assertCount(0, Post::all());
         //print_r($post->deleted_at);
+
     }
 
     public function test_can_get_deleted_rows(){
@@ -139,6 +143,7 @@ class PostTest extends AbstractTestCase
         $posts = Post::onlyTrashed()->get();
         $this->assertEquals(1, $posts[0]->id);
         $this->assertEquals('Post Test', $posts[0]->title);
+
     }
 
     public function test_can_get_deleted_rows_and_activated(){
@@ -150,6 +155,15 @@ class PostTest extends AbstractTestCase
         $this->assertCount(2, $posts);
         $this->assertEquals(1, $posts[0]->id);
         $this->assertEquals('Post Test', $posts[0]->title);
+
+    }
+
+    public function test_can_force_delete(){
+
+        $post = Post::create(['title' => 'Post Test', 'content' => 'Conteudo do post']);
+        $post->forceDelete();
+        $this->assertCount(0, Post::all());
+
     }
 
 }
