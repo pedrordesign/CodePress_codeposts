@@ -2,9 +2,6 @@
 
 namespace CodePress\CodePost\Controllers;
 
-
-use CodePress\CodePost\Models\Post;
-//use CodePress\CodePost\Repository\PostRepository;
 use CodePress\CodePost\Repository\PostRepositoryInterface;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
