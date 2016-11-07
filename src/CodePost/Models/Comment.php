@@ -4,6 +4,7 @@ namespace CodePress\CodePost\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Post
@@ -11,11 +12,14 @@ use Illuminate\Contracts\Validation\Validator;
  */
 class Comment extends Model{
 
+    use SoftDeletes;
+
     /**
      * @var string
      */
     protected $table = 'codepress_comments';
 
+    protected $dates = ['deleted_at'];
 
     /**
      * @var array
