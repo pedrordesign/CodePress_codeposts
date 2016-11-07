@@ -23,7 +23,7 @@
                     <tr>
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
-                        <td>{{ $post->content }}</td>
+                        <td>{{ str_limit($post->content, 55) }}</td>
                         <td>
                             <a name="link_edit_post_{{$post->id}}" href="{{route('admin.posts.edit', ['id' => $post->id])}}">
                                 Edit
