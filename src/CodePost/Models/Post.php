@@ -7,6 +7,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Post
@@ -16,11 +17,13 @@ class Post extends Model
 {
     use Sluggable;
     use SluggableScopeHelpers;
+    use SoftDeletes;
 
     /**
      * @var string
      */
     protected $table = 'codepress_posts';
+    protected $dates = ['deleted_at'];
 
     /**
      * Return the sluggable configuration array for this model.
