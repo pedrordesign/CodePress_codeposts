@@ -166,4 +166,16 @@ class PostTest extends AbstractTestCase
 
     }
 
+    public function test_can_restore_soft_deleted_rows(){
+
+        $post = Post::create(['title' => 'Post Test', 'content' => 'Conteudo do post']);
+        $post->Delete();
+        $post->restore();
+        $posts = Post::all();
+        $this->assertCount(1, $posts);
+        $this->assertEquals(1, $posts[0]->id);
+        $this->assertEquals('Post Test', $posts[0]->title);
+
+    }
+
 }
