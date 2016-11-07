@@ -122,13 +122,34 @@ class PostTest extends AbstractTestCase
 
     }
 
-    public function test_can_softDelete(){
+    public function test_can_soft_delete(){
 
         $post = Post::create(['title' => 'Post Test', 'content' => 'Conteudo do post']);
         $post->delete();
         $this->assertEquals(true, $post->trashed());
         $this->assertCount(0, Post::all());
         //print_r($post->deleted_at);
+    }
+
+    public function test_can_get_deleted_rows(){
+
+        $post = Post::create(['title' => 'Post Test', 'content' => 'Conteudo do post']);
+        Post::create(['title' => 'Post Test 2', 'content' => 'Conteudo do post 2']);
+        $post->delete();
+        $posts = Post::onlyTrashed()->get();
+        $this->assertEquals(1, $posts[0]->id);
+        $this->assertEquals('Post Test', $posts[0]->title);
+    }
+
+    public function test_can_get_deleted_rows_and_activated(){
+
+        $post = Post::create(['title' => 'Post Test', 'content' => 'Conteudo do post']);
+        Post::create(['title' => 'Post Test 2', 'content' => 'Conteudo do post 2']);
+        $post->delete();
+        $posts = Post::withTrashed()->get();
+        $this->assertCount(2, $posts);
+        $this->assertEquals(1, $posts[0]->id);
+        $this->assertEquals('Post Test', $posts[0]->title);
     }
 
 }
