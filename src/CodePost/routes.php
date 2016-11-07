@@ -10,6 +10,7 @@ Route::group([
 
         Route::get('', [ 'uses' => 'AdminPostController@index', 'as' => 'index']);
         Route::get('/create', [ 'uses' => 'AdminPostController@create', 'as' => 'create']);
+        Route::get('/edit', [ 'uses' => 'AdminPostController@create', 'as' => 'edit']);
         Route::post('/store', [ 'uses' => 'AdminPostController@store', 'as' => 'store']);
 
     });

@@ -3,6 +3,7 @@
 namespace CodePress\CodePost\Providers;
 
 
+use CodePress\CodePost\Repository\PostRepositoryEloquent;
 use CodePress\CodePost\Repository\PostRepositoryInterface;
 use Cviebrock\EloquentSluggable\ServiceProvider;
 

@@ -24,14 +24,14 @@ class AdminPostController extends Controller
     public function index()
     {
         $posts = $this->repository->all();
-        return $this->response->view('post::index', compact('posts'));
+        return $this->response->view('codepost::index', compact('posts'));
 
     }
 
     public function create()
     {
         $posts = $this->repository->all();
-        return view('post::create', compact('posts'));
+        return view('codepost::create', compact('posts'));
 
     }
 
@@ -43,9 +43,9 @@ class AdminPostController extends Controller
 
     public function edit($id)
     {
-        $category = $this->repository->find($id);
+        $post = $this->repository->find($id);
         $posts = $this->repository->all();
-        return $this->response->view('post::edit', compact('category', 'posts'));
+        return $this->response->view('codepost::edit', compact('post', 'posts'));
     }
     public function update(Request $request, $id)
     {
@@ -61,8 +61,8 @@ class AdminPostController extends Controller
             $data['parent_id'] = null;
         }
 
-        $category = $this-$this->repository->update($data, $id);
-        //var_dump($category); die;
+        $post = $this-$this->repository->update($data, $id);
+        //var_dump($post); die;
         return redirect()->route('admin.posts.index');
     }
 

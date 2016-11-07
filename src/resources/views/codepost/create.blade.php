@@ -10,12 +10,12 @@
 
             <div class="form-group">
                 {!! Form::label('Title', 'Title:') !!}
-                {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                {!! Form::text('title', null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
                 {!! Form::label('Content', 'Content:') !!}
-                {!! Form::checkbox('active', null, ['class' => 'form-control']) !!}
+                {!! Form::text('content', null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">

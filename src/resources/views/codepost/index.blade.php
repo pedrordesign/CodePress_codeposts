@@ -21,10 +21,9 @@
             <tbody>
                 @foreach($posts as $post)
                     <tr>
-                        <td>{{ $category->id }}</td>
-                        <td>{{ $category->title }}</td>
-                        <td>{{ $category->content }}</td>
-                        <td>{{ $category->action}}</td>
+                        <td>{{ $post->id }}</td>
+                        <td>{{ $post->title }}</td>
+                        <td>{{ $post->content }}</td>
                         <td>
                             <a href="{{route('admin.posts.edit', ['id' => $post->id])}}">
                                 Edit
