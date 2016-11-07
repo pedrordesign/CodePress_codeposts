@@ -122,7 +122,7 @@ class CommentTest extends AbstractTestCase
         $post->comments()->forceDelete();
 
         $this->assertCount(0, $post->comments()->get());
-        
+
     }
 
     public function test_can_force_restore_delete_all_from_relationship(){
@@ -140,13 +140,29 @@ class CommentTest extends AbstractTestCase
             'post_id' => $post->id
         ]);
 
-        $post->comments()->Delete();
+        $post->comments()->delete();
 
         $this->assertCount(0, $post->comments()->get());
 
         $post->comments()->restore();
 
         $this->assertCount(2, $post->comments()->get());
+
+    }
+
+    public function test_can_find_the_model_deleted_from_relationship(){
+
+        $post = Post::create([
+            'title' => 'Titulo do post',
+            'content' => 'Conteudo do post'
+        ]);
+        Comment::create([
+            'content' => 'Conteudo do comment 1',
+            'post_id' => $post->id
+        ]);
+        $post->delete();
+        $comment = Comment::find(1);
+        $this->assertEquals('Titulo do post', $comment->post->title);
 
     }
 
