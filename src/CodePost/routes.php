@@ -4,7 +4,7 @@ Route::group([
     'prefix' => 'admin/posts',
     'as' => 'admin.posts.',
     'namespace'=>'CodePress\CodePost\Controllers',
-    'middleware' => ['web']
+    'middleware' => ['web', 'auth']
 ],
     function(){
 
