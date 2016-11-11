@@ -15,6 +15,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Post extends Model
 {
+
+    const STATE_PUBLISHED = 1;
+    const STATE_DRAFT = 2;
+
     use Sluggable, SluggableScopeHelpers, SoftDeletes;
 
     /**
@@ -44,7 +48,8 @@ class Post extends Model
     protected $fillable = [
         'title',
         'content',
-        'slug'
+        'slug',
+        'state'
     ];
 
     /**

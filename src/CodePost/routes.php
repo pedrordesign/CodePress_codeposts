@@ -13,5 +13,6 @@ Route::group([
         Route::post('/store', [ 'uses' => 'AdminPostController@store', 'as' => 'store']);
         Route::get('{id}/edit', [ 'uses' => 'AdminPostController@edit', 'as' => 'edit']);
         Route::put('{id}/update/', [ 'uses' => 'AdminPostController@update', 'as' => 'update']);
+        Route::patch('{id}/update-state/', [ 'uses' => 'AdminPostController@updateState', 'as' => 'state_state']);
 
     });

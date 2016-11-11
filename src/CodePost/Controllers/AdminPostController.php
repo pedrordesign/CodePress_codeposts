@@ -47,6 +47,7 @@ class AdminPostController extends Controller
         $posts = $this->repository->all();
         return $this->response->view('codepost::edit', compact('post', 'posts'));
     }
+
     public function update(Request $request, $id)
     {
         $data = $request->all();
@@ -64,6 +65,12 @@ class AdminPostController extends Controller
         $post = $this-$this->repository->update($data, $id);
         //var_dump($post); die;
         return redirect()->route('admin.posts.index');
+    }
+
+    public function updateState(Request $request, $id){ //, $state
+        $this->authorize('updateState_post');
+        $this->repository->updateState($id, $request->get('state'));
+        return redirect()->route('admin.posts.edit', ['id' => $id]);
     }
 
 }
