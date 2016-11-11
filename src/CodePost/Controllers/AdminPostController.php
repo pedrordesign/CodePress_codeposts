@@ -43,6 +43,7 @@ class AdminPostController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('posts_access');
         $post = $this->repository->find($id);
         $posts = $this->repository->all();
         return $this->response->view('codepost::edit', compact('post', 'posts'));
@@ -68,7 +69,8 @@ class AdminPostController extends Controller
     }
 
     public function updateState(Request $request, $id){ //, $state
-        $this->authorize('updateState_post');
+        //dd($request->get('state'));
+        $this->authorize('posts_publish');
         $this->repository->updateState($id, $request->get('state'));
         return redirect()->route('admin.posts.edit', ['id' => $id]);
     }
