@@ -5,7 +5,7 @@ namespace CodePress\CodePost\Providers;
 
 use Cviebrock\EloquentSluggable\ServiceProvider;
 
-class CodePostsServiceProvider extends ServiceProvider
+class CodePostServiceProvider extends ServiceProvider
 {
     /**
      *
